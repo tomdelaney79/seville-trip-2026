@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Delaneys’ Trip to Seville | Andalusia Family Adventure</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: {
+                            DEFAULT: '#C85A32',
+                            light: '#E07A5F',
+                            dark: '#A04320',
+                        },
+                        cream: {
+                            DEFAULT: '#FDFBF7',
+                            dark: '#1A1816',
+                        },
+                        olive: {
+                            DEFAULT: '#6B705C',
+                            light: '#A3A899',
+                            dark: '#4A4E3D',
+                        },
+                        medblue: {
+                            DEFAULT: '#2A9D8F',
+                            light: '#48CAE4',
+                            dark: '#1D6F64',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-cream text-stone-800 dark:bg-stone-900 dark:text-cream transition-colors duration-300">
+
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <span class="text-2xl font-serif font-bold text-terracotta">Seville '26</span>
+                    <span class="hidden sm:inline-block text-xs uppercase tracking-widest text-olive px-2 py-1 bg-olive/10 rounded-full">August 15–27</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#overview" class="hover:text-terracotta transition-colors">Overview</a>
+                    <a href="#summary" class="hover:text-terracotta transition-colors">Journey</a>
+                    <a href="#itinerary" class="hover:text-terracotta transition-colors">Itinerary</a>
+                    <a href="#accommodation" class="hover:text-terracotta transition-colors">Stays</a>
+                    <a href="#guide" class="hover:text-terracotta transition-colors">Guides</a>
+                    <a href="#budget" class="hover:text-terracotta transition-colors">Budget</a>
+                    <a href="#challenge" class="hover:text-terracotta transition-colors">Challenges</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors">
+                        <i class="fa-solid fa-moon dark:hidden text-stone-700"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline text-amber-400"></i>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" aria-label="Open Mobile Menu" class="md:hidden p-2 rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cream dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#overview" class="block py-2 hover:text-terracotta">Overview</a>
+            <a href="#summary" class="block py-2 hover:text-terracotta">Journey</a>
+            <a href="#itinerary" class="block py-2 hover:text-terracotta">Itinerary</a>
+            <a href="#accommodation" class="block py-2 hover:text-terracotta">Stays</a>
+            <a href="#guide" class="block py-2 hover:text-terracotta">Guides</a>
+            <a href="#budget" class="block py-2 hover:text-terracotta">Budget</a>
+            <a href="#challenge" class="block py-2 hover:text-terracotta">Challenges</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-stone-900 text-white">
+        <!-- Background Image Placeholder with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1543785307-160a03d24e93?auto=format&fit=crop&w=2000&q=80" alt="Plaza de España Seville" class="w-full h-full object-cover opacity-50 scale-105 animate-pulse duration-[10000ms]">
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center py-20">
+            <span class="inline-block uppercase tracking-[0.3em] text-xs sm:text-sm text-terracotta-light bg-terracotta/20 px-4 py-1.5 rounded-full mb-6 font-semibold backdrop-blur-sm">
+                A Family Adventure Through Andalusia
+            </span>
+            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-serif font-bold tracking-tight mb-6">
+                The Delaneys’ <br><span class="text-terracotta-light italic">Trip to Seville</span>
+            </h1>
+            <p class="text-xl sm:text-2xl font-light text-stone-200 max-w-2xl mx-auto mb-10">
+                Tom, Rebecca, Rose (14), and Joe (12) take on Spain. August 15–27, 2026.
+            </p>
+
+            <!-- Countdown Timer -->
+            <div class="grid grid-cols-4 gap-3 max-w-md mx-auto mb-12 bg-stone-950/60 backdrop-blur-md p-4 rounded-2xl border border-stone-800">
+                <div class="text-center">
+                    <span id="days" class="block text-3xl font-bold font-serif text-terracotta-light">00</span>
+                    <span class="text-[10px] uppercase tracking-wider text-stone-400">Days</span>
+                </div>
+                <div class="text-center">
+                    <span id="hours" class="block text-3xl font-bold font-serif text-terracotta-light">00</span>
+                    <span class="text-[10px] uppercase tracking-wider text-stone-400">Hours</span>
+                </div>
+                <div class="text-center">
+                    <span id="minutes" class="block text-3xl font-bold font-serif text-terracotta-light">00</span>
+                    <span class="text-[10px] uppercase tracking-wider text-stone-400">Mins</span>
+                </div>
+                <div class="text-center">
+                    <span id="seconds" class="block text-3xl font-bold font-serif text-terracotta-light">00</span>
+                    <span class="text-[10px] uppercase tracking-wider text-stone-400">Secs</span>
+                </div>
+            </div>
+
+            <a href="#itinerary" class="inline-flex items-center space-x-3 bg-terracotta hover:bg-terracotta-dark text-white px-8 py-4 rounded-full font-medium text-lg transition-all shadow-xl hover:scale-105">
+                <span>Start Adventure</span>
+                <i class="fa-solid fa-arrow-down animate-bounce"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Quick Stats Bar -->
+    <section id="overview" class="bg-olive/10 dark:bg-stone-800/50 py-12 border-y border-stone-200 dark:border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-6 bg-cream dark:bg-stone-800 rounded-2xl shadow-sm border border-stone-200/60 dark:border-stone-700">
+                    <i class="fa-solid fa-plane-departure text-3xl text-terracotta mb-3"></i>
+                    <h3 class="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider">Flights</h3>
+                    <p class="text-lg font-bold font-serif mt-1">Manchester ⇄ Seville</p>
+                </div>
+                <div class="p-6 bg-cream dark:bg-stone-800 rounded-2xl shadow-sm border border-stone-200/60 dark:border-stone-700">
+                    <i class="fa-solid fa-house-chimney text-3xl text-medblue mb-3"></i>
+                    <h3 class="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider">Accommodation</h3>
+                    <p class="text-lg font-bold font-serif mt-1">Hotel, Villa & Boutique</p>
+                </div>
+                <div class="p-6 bg-cream dark:bg-stone-800 rounded-2xl shadow-sm border border-stone-200/60 dark:border-stone-700">
+                    <i class="fa-solid fa-car text-3xl text-olive mb-3"></i>
+                    <h3 class="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider">Car Hire</h3>
+                    <p class="text-lg font-bold font-serif mt-1">Enterprise (Ronda/Villa)</p>
+                </div>
+                <div class="p-6 bg-cream dark:bg-stone-800 rounded-2xl shadow-sm border border-stone-200/60 dark:border-stone-700">
+                    <i class="fa-solid fa-triangle-exclamation text-3xl text-amber-600 mb-3"></i>
+                    <h3 class="text-sm font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider">Emergency</h3>
+                    <p class="text-lg font-bold font-serif mt-1">112 (EU Standard)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Holiday Summary Timeline -->
+    <section id="summary" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-terracotta font-semibold uppercase tracking-widest text-xs">Route & Milestone Overview</span>
+            <h2 class="text-4xl sm:text-5xl font-serif font-bold mt-2">The Grand Itinerary Flow</h2>
+            <p class="text-stone-600 dark:text-stone-400 mt-4">From urban Seville to mountain hideaways in El Jaral, concluding back by the river in Triana.</p>
+        </div>
+
+        <div class="relative border-l-2 border-terracotta/30 ml-4 sm:ml-32 space-y-12">
+            <!-- Summary Item 1 -->
+            <div class="relative pl-8 sm:pl-12">
+                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-terracotta ring-4 ring-cream dark:ring-stone-900"></div>
+                <span class="text-xs font-bold text-terracotta uppercase tracking-wider">15 Aug 2026</span>
+                <h3 class="text-xl font-serif font-bold mt-1">Departure & Arrival</h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm mt-1">Manchester Airport lounge ➔ Flight to Seville ➔ Check in at Novotel Sevilla.</p>
+            </div>
+            <!-- Summary Item 2 -->
+            <div class="relative pl-8 sm:pl-12">
+                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-olive ring-4 ring-cream dark:ring-stone-900"></div>
+                <span class="text-xs font-bold text-olive uppercase tracking-wider">18 Aug 2026</span>
+                <h3 class="text-xl font-serif font-bold mt-1">Road Trip & Mountain Villa</h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm mt-1">Collect Enterprise Hire Car ➔ Drive to Ronda via Mercadona ➔ Villa El Jaral (El Gastor).</p>
+            </div>
+            <!-- Summary Item 3 -->
+            <div class="relative pl-8 sm:pl-12">
+                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-medblue ring-4 ring-cream dark:ring-stone-900"></div>
+                <span class="text-xs font-bold text-medblue uppercase tracking-wider">25 Aug 2026</span>
+                <h3 class="text-xl font-serif font-bold mt-1">Return to Triana</h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm mt-1">Carmona stopover ➔ Drop luggage at Hommyhome Triana ➔ Return car to Seville Airport.</p>
+            </div>
+            <!-- Summary Item 4 -->
+            <div class="relative pl-8 sm:pl-12">
+                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-stone-700 ring-4 ring-cream dark:ring-stone-900"></div>
+                <span class="text-xs font-bold text-stone-500 uppercase tracking-wider">27 Aug 2026</span>
+                <h3 class="text-xl font-serif font-bold mt-1">Heading Home</h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm mt-1">Explore Seville ➔ Airport evening flight ➔ Arrive Manchester 00:40.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Section -->
+    <section id="accommodation" class="py-20 bg-stone-100 dark:bg-stone-800/40 border-y border-stone-200 dark:border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-terracotta font-semibold uppercase tracking-widest text-xs">Where We Sleep</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-bold mt-2">Our Handpicked Stays</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Novotel -->
+                <div class="bg-cream dark:bg-stone-800 rounded-3xl overflow-hidden shadow-lg border border-stone-200 dark:border-stone-700 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Novotel Sevilla" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-stone-900/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full font-medium">15–18 Aug</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold mb-2">Novotel Sevilla</h3>
+                            <p class="text-stone-600 dark:text-stone-400 text-sm mb-4">Modern comfort situated perfectly for exploring the city streets.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-xs bg-terracotta/10 text-terracotta px-3 py-1 rounded-full font-medium"><i class="fa-solid fa-water-ladder mr-1"></i> Rooftop Pool</span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-stone-500 border-t border-stone-200 dark:border-stone-700 pt-4">Seville City Centre</div>
+                    </div>
+                </div>
+
+                <!-- Villa El Jaral -->
+                <div class="bg-cream dark:bg-stone-800 rounded-3xl overflow-hidden shadow-lg border border-stone-200 dark:border-stone-700 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80" alt="Villa El Jaral" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-stone-900/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full font-medium">18–25 Aug</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold mb-2">Villa El Jaral</h3>
+                            <p class="text-stone-600 dark:text-stone-400 text-sm mb-4">Private mountain retreat near El Gastor with stunning panoramic landscapes.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-xs bg-olive/10 text-olive-dark dark:text-olive-light px-3 py-1 rounded-full font-medium"><i class="fa-solid fa-person-swimming mr-1"></i> Private Pool</span>
+                                <span class="text-xs bg-olive/10 text-olive-dark dark:text-olive-light px-3 py-1 rounded-full font-medium"><i class="fa-solid fa-fire-burner mr-1"></i> BBQ</span>
+                                <span class="text-xs bg-olive/10 text-olive-dark dark:text-olive-light px-3 py-1 rounded-full font-medium"><i class="fa-solid fa-mountain mr-1"></i> Views</span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-stone-500 border-t border-stone-200 dark:border-stone-700 pt-4">Near El Gastor, Andalusia</div>
+                    </div>
+                </div>
+
+                <!-- Hommyhome Triana -->
+                <div class="bg-cream dark:bg-stone-800 rounded-3xl overflow-hidden shadow-lg border border-stone-200 dark:border-stone-700 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="Hommyhome Triana" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-stone-900/80 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full font-medium">25–27 Aug</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold mb-2">Hommyhome Triana</h3>
+                            <p class="text-stone-600 dark:text-stone-400 text-sm mb-4">Boutique apartments right in vibrant Triana, walking distance to iconic eateries.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-xs bg-medblue/10 text-medblue px-3 py-1 rounded-full font-medium"><i class="fa-solid fa-utensils mr-1"></i> Restaurant Proximity</span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-stone-500 border-t border-stone-200 dark:border-stone-700 pt-4">Triana District, Seville</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Itinerary Section -->
+    <section id="itinerary" class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-terracotta font-semibold uppercase tracking-widest text-xs">Day-by-Day Plan</span>
+            <h2 class="text-4xl sm:text-5xl font-serif font-bold mt-2">The Daily Itinerary</h2>
+            <p class="text-stone-600 dark:text-stone-400 mt-4">Expandable schedule tracking every morning, afternoon, and evening experience.</p>
+        </div>
+
+        <div class="space-y-6">
+            <!-- Day 1 -->
+            <div class="bg-stone-100 dark:bg-stone-800/60 rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-700">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-700 gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-terracotta uppercase tracking-widest">Saturday 15 August 2026</span>
+                        <h3 class="text-2xl font-serif font-bold mt-1">Day 1: Travel Day</h3>
+                    </div>
+                    <span class="inline-flex items-center text-xs font-medium bg-terracotta/10 text-terracotta px-3 py-1.5 rounded-full w-fit">
+                        <i class="fa-solid fa-plane mr-2"></i> Manchester ➔ Seville
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-mug-hot mr-1 text-terracotta"></i> Morning</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Pack and final checks</li>
+                            <li>• Drive to Manchester Airport</li>
+                            <li>• Airport lounge booked (13:45)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-plane-up mr-1 text-medblue"></i> Afternoon</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Flight departs Manchester (17:05)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-moon mr-1 text-olive"></i> Evening</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Arrive Seville (20:55)</li>
+                            <li>• Taxi to Novotel, check in & relax</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="bg-stone-100 dark:bg-stone-800/60 rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-700">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-700 gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-terracotta uppercase tracking-widest">Sunday 16 August 2026</span>
+                        <h3 class="text-2xl font-serif font-bold mt-1">Day 2: Seville Highlights</h3>
+                    </div>
+                    <span class="inline-flex items-center text-xs font-medium bg-terracotta/10 text-terracotta px-3 py-1.5 rounded-full w-fit">
+                        <i class="fa-solid fa-city mr-2"></i> Plaza de España
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-mug-hot mr-1 text-terracotta"></i> Morning</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Traditional Spanish breakfast (Jamón, tomato toast, orange juice, coffee)</li>
+                            <li>• Walk to Plaza de España & Maria Luisa Park</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-utensils mr-1 text-medblue"></i> Afternoon</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Tapas lunch in Santa Cruz</li>
+                            <li>• Explore Santa Cruz, ice cream & rooftop pool back at Novotel</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-moon mr-1 text-olive"></i> Evening</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Tapas dinner</li>
+                            <li>• Walk through illuminated Seville</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="bg-stone-100 dark:bg-stone-800/60 rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-700">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-700 gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-terracotta uppercase tracking-widest">Monday 17 August 2026</span>
+                        <h3 class="text-2xl font-serif font-bold mt-1">Day 3: Cathedral & Alcázar</h3>
+                    </div>
+                    <span class="inline-flex items-center text-xs font-medium bg-terracotta/10 text-terracotta px-3 py-1.5 rounded-full w-fit">
+                        <i class="fa-solid fa-landmark mr-2"></i> Royal Alcázar
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-mug-hot mr-1 text-terracotta"></i> Morning</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Breakfast</li>
+                            <li>• Seville Cathedral & La Giralda tower</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-sun mr-1 text-medblue"></i> Afternoon</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Lunch in Old Town</li>
+                            <li>• Royal Alcázar, Las Setas & shopping/pool time</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-moon mr-1 text-olive"></i> Evening</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Final dinner in Seville</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="bg-stone-100 dark:bg-stone-800/60 rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-700">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-700 gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-terracotta uppercase tracking-widest">Tuesday 18 August 2026</span>
+                        <h3 class="text-2xl font-serif font-bold mt-1">Day 4: Road Trip to Ronda & Villa</h3>
+                    </div>
+                    <span class="inline-flex items-center text-xs font-medium bg-olive/10 text-olive-dark dark:text-olive-light px-3 py-1.5 rounded-full w-fit">
+                        <i class="fa-solid fa-car mr-2"></i> Enterprise Hire Car
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-mug-hot mr-1 text-terracotta"></i> Morning</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Breakfast & check out</li>
+                            <li>• Metro to airport, collect Enterprise Hire Car</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-road mr-1 text-medblue"></i> Afternoon</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Drive to Ronda, lunch, Puente Nuevo walk & viewpoints</li>
+                            <li>• Mercadona supermarket stop for BBQ supplies</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-house-fire mr-1 text-olive"></i> Evening</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Drive to Villa El Jaral, check in</li>
+                            <li>• First BBQ, pool & sunset</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Days 5-10 Summary Block -->
+            <div class="bg-stone-100 dark:bg-stone-800/60 rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-700">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-700 gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-olive uppercase tracking-widest">19–24 August 2026</span>
+                        <h3 class="text-2xl font-serif font-bold mt-1">Days 5–10: Villa Relaxation & Day Trips</h3>
+                    </div>
+                    <span class="inline-flex items-center text-xs font-medium bg-olive/10 text-olive px-3 py-1.5 rounded-full w-fit">
+                        <i class="fa-solid fa-mountain-sun mr-2"></i> El Gastor Base
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6 text-sm text-stone-700 dark:text-stone-300">
+                    <div class="p-4 bg-cream dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800">
+                        <strong class="block text-terracotta mb-1">Day 5 (Wed): Zahara de la Sierra</strong>
+                        Pool day with optional lake-view lunch and evening BBQ.
+                    </div>
+                    <div class="p-4 bg-cream dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800">
+                        <strong class="block text-terracotta mb-1">Day 6 (Thu): Setenil de las Bodegas</strong>
+                        Morning visit to the cave houses, coffee, lunch, afternoon pool.
+                    </div>
+                    <div class="p-4 bg-cream dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800">
+                        <strong class="block text-terracotta mb-1">Day 7 (Fri): Pure Relaxation</strong>
+                        Complete villa day: reading, swimming, and BBQ.
+                    </div>
+                    <div class="p-4 bg-cream dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800">
+                        <strong class="block text-terracotta mb-1">Day 8 (Sat): Cádiz Coast</strong>
+                        Drive to Cádiz Old Town, beach time, and seafood lunch.
+                    </div>
+                    <div class="p-4 bg-cream dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800">
+                        <strong class="block text-terracotta mb-1">Day 9 (Sun): Ronda Markets</strong>
+                        Free villa day, optional Ronda markets and evening BBQ.
+                    </div>
+                    <div class="p-4 bg-cream dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800">
+                        <strong class="block text-terracotta mb-1">Day 10 (Mon): Final Villa Day</strong>
+                        Relax, pool, packing, final villa sunset BBQ.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 11 -->
+            <div class="bg-stone-100 dark:bg-stone-800/60 rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-700">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-700 gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-terracotta uppercase tracking-widest">Tuesday 25 August 2026</span>
+                        <h3 class="text-2xl font-serif font-bold mt-1">Day 11: Return to Triana</h3>
+                    </div>
+                    <span class="inline-flex items-center text-xs font-medium bg-medblue/10 text-medblue px-3 py-1.5 rounded-full w-fit">
+                        <i class="fa-solid fa-water mr-2"></i> Triana District
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-mug-hot mr-1 text-terracotta"></i> Morning</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Breakfast & 11:00 villa check out</li>
+                            <li>• Drive to Carmona for lunch & walk</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-car-side mr-1 text-medblue"></i> Afternoon</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Drop Rebecca, Rose, Joe & luggage at Hommyhome Triana</li>
+                            <li>• Return hire car to Seville Airport before 16:00</li>
+                            <li>• Taxi or EA Airport Bus back to Triana</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-moon mr-1 text-olive"></i> Evening</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Dinner by the river</li>
+                            <li>• Walk Calle Betis at sunset</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 12 -->
+            <div class="bg-stone-100 dark:bg-stone-800/60 rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-700">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-700 gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-terracotta uppercase tracking-widest">Wednesday 26 August 2026</span>
+                        <h3 class="text-2xl font-serif font-bold mt-1">Day 12: Exploring Triana</h3>
+                    </div>
+                    <span class="inline-flex items-center text-xs font-medium bg-medblue/10 text-medblue px-3 py-1.5 rounded-full w-fit">
+                        <i class="fa-solid fa-store mr-2"></i> Triana Market
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-mug-hot mr-1 text-terracotta"></i> Morning</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Breakfast</li>
+                            <li>• Triana Market & local ceramic shops</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-bag-shopping mr-1 text-medblue"></i> Afternoon</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Lunch & final shopping</li>
+                            <li>• Relax</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-moon mr-1 text-olive"></i> Evening</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Farewell dinner</li>
+                            <li>• Final walk by the river</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 13 -->
+            <div class="bg-stone-100 dark:bg-stone-800/60 rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-stone-700">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-700 gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-terracotta uppercase tracking-widest">Thursday 27 August 2026</span>
+                        <h3 class="text-2xl font-serif font-bold mt-1">Day 13: Journey Home</h3>
+                    </div>
+                    <span class="inline-flex items-center text-xs font-medium bg-terracotta/10 text-terracotta px-3 py-1.5 rounded-full w-fit">
+                        <i class="fa-solid fa-plane-departure mr-2"></i> Seville ➔ Manchester
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-mug-hot mr-1 text-terracotta"></i> Morning</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Breakfast</li>
+                            <li>• 11:00 Check out & store luggage</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-city mr-1 text-medblue"></i> Afternoon</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Explore Seville further</li>
+                            <li>• Lunch & last-minute shopping</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-stone-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-plane-arrival mr-1 text-olive"></i> Evening / Night</h4>
+                        <ul class="text-sm space-y-1 text-stone-700 dark:text-stone-300">
+                            <li>• Head to airport around 19:30</li>
+                            <li>• Flight departs 22:45, arrive Manchester 00:40 (28 Aug)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Guides & Villa Checklist -->
+    <section id="guide" class="py-20 bg-stone-100 dark:bg-stone-800/40 border-y border-stone-200 dark:border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-terracotta font-semibold uppercase tracking-widest text-xs">Essential Preparation</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-bold mt-2">Villa Guide & Packing List</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- BBQ Shopping List Checklist -->
+                <div class="bg-cream dark:bg-stone-800 p-8 rounded-3xl border border-stone-200 dark:border-stone-700 shadow-sm">
+                    <h3 class="text-2xl font-serif font-bold mb-6 flex items-center">
+                        <i class="fa-solid fa-basket-shopping text-terracotta mr-3"></i> Mercadona BBQ Shopping List
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 accent-terracotta rounded"><span>Chicken, Burgers, Sausages & Steaks</span></li>
+                        <li class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 accent-terracotta rounded"><span>Fresh Bread & Salad ingredients</span></li>
+                        <li class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 accent-terracotta rounded"><span>Beer, Wine, Bottled Water & Ice</span></li>
+                        <li class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 accent-terracotta rounded"><span>Charcoal & Firelighters</span></li>
+                        <li class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 accent-terracotta rounded"><span>Coffee & Family Snacks</span></li>
+                    </ul>
+                </div>
+
+                <!-- Useful Info & Emergency -->
+                <div class="bg-cream dark:bg-stone-800 p-8 rounded-3xl border border-stone-200 dark:border-stone-700 shadow-sm">
+                    <h3 class="text-2xl font-serif font-bold mb-6 flex items-center">
+                        <i class="fa-solid fa-circle-info text-medblue mr-3"></i> Useful Information
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex justify-between pb-3 border-b border-stone-200 dark:border-stone-700">
+                            <span class="font-medium text-stone-500">Emergency Number</span>
+                            <span class="font-bold text-terracotta">112 (Free across EU)</span>
+                        </div>
+                        <div class="flex justify-between pb-3 border-b border-stone-200 dark:border-stone-700">
+                            <span class="font-medium text-stone-500">Currency</span>
+                            <span class="font-bold">Euro (€)</span>
+                        </div>
+                        <div class="flex justify-between pb-3 border-b border-stone-200 dark:border-stone-700">
+                            <span class="font-medium text-stone-500">Tipping</span>
+                            <span class="font-bold">Optional / Small change appreciated</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-medium text-stone-500">Car Return Deadline</span>
+                            <span class="font-bold text-amber-600">Before 16:00 (25 Aug)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Budget Tracker & Family Challenges -->
+    <section id="budget" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Budget Tracker Categories -->
+            <div>
+                <span class="text-terracotta font-semibold uppercase tracking-widest text-xs">Financial Overview</span>
+                <h2 class="text-3xl font-serif font-bold mt-2 mb-6">Budget Tracker Categories</h2>
+                <div class="bg-stone-100 dark:bg-stone-800/60 p-6 rounded-3xl border border-stone-200 dark:border-stone-700 space-y-4">
+                    <div class="flex items-center justify-between p-3 bg-cream dark:bg-stone-800 rounded-2xl">
+                        <span class="font-medium text-sm"><i class="fa-solid fa-gas-pump text-olive mr-2"></i> Fuel & Tolls</span>
+                        <span class="text-xs font-bold bg-stone-200 dark:bg-stone-700 px-3 py-1 rounded-full">Track Expense</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-cream dark:bg-stone-800 rounded-2xl">
+                        <span class="font-medium text-sm"><i class="fa-solid fa-utensils text-terracotta mr-2"></i> Restaurants & Tapas</span>
+                        <span class="text-xs font-bold bg-stone-200 dark:bg-stone-700 px-3 py-1 rounded-full">Track Expense</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-cream dark:bg-stone-800 rounded-2xl">
+                        <span class="font-medium text-sm"><i class="fa-solid fa-basket-shopping text-medblue mr-2"></i> Supermarket & BBQ</span>
+                        <span class="text-xs font-bold bg-stone-200 dark:bg-stone-700 px-3 py-1 rounded-full">Track Expense</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-cream dark:bg-stone-800 rounded-2xl">
+                        <span class="font-medium text-sm"><i class="fa-solid fa-ice-cream text-amber-500 mr-2"></i> Ice Cream Stops</span>
+                        <span class="text-xs font-bold bg-stone-200 dark:bg-stone-700 px-3 py-1 rounded-full">Track Expense</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-cream dark:bg-stone-800 rounded-2xl">
+                        <span class="font-medium text-sm"><i class="fa-solid fa-square-parking text-stone-500 mr-2"></i> Parking & Transport</span>
+                        <span class="text-xs font-bold bg-stone-200 dark:bg-stone-700 px-3 py-1 rounded-full">Track Expense</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Family Challenges -->
+            <div id="challenge">
+                <span class="text-terracotta font-semibold uppercase tracking-widest text-xs">Interactive Fun</span>
+                <h2 class="text-3xl font-serif font-bold mt-2 mb-6">The Delaney Family Challenge</h2>
+                <div class="bg-stone-100 dark:bg-stone-800/60 p-6 rounded-3xl border border-stone-200 dark:border-stone-700 space-y-3">
+                    <label class="flex items-center space-x-3 p-3 bg-cream dark:bg-stone-800 rounded-2xl cursor-pointer hover:bg-stone-200/50 transition-colors">
+                        <input type="checkbox" class="w-5 h-5 accent-terracotta rounded">
+                        <span class="text-sm font-medium">Spot local orange trees in Seville</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-cream dark:bg-stone-800 rounded-2xl cursor-pointer hover:bg-stone-200/50 transition-colors">
+                        <input type="checkbox" class="w-5 h-5 accent-terracotta rounded">
+                        <span class="text-sm font-medium">Listen to a live Flamenco guitarist</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-cream dark:bg-stone-800 rounded-2xl cursor-pointer hover:bg-stone-200/50 transition-colors">
+                        <input type="checkbox" class="w-5 h-5 accent-terracotta rounded">
+                        <span class="text-sm font-medium">Eat authentic fresh churros & chocolate</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-cream dark:bg-stone-800 rounded-2xl cursor-pointer hover:bg-stone-200/50 transition-colors">
+                        <input type="checkbox" class="w-5 h-5 accent-terracotta rounded">
+                        <span class="text-sm font-medium">Swim every single day of the trip</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-cream dark:bg-stone-800 rounded-2xl cursor-pointer hover:bg-stone-200/50 transition-colors">
+                        <input type="checkbox" class="w-5 h-5 accent-terracotta rounded">
+                        <span class="text-sm font-medium">Take the ultimate family photo in Plaza de España</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-serif font-bold text-cream mb-2">The Delaneys’ Trip to Seville</h3>
+            <p class="text-sm mb-6">A Family Adventure Through Andalusia • August 15–27, 2026</p>
+            <p class="text-xs text-stone-600">Prepared for GitHub Pages deployment. Designed with warm Spanish tones.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Countdown & Dark Mode -->
+    <script>
+        // Dark Mode Toggle Logic
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const htmlElement = document.documentElement;
+
+        darkModeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Countdown Timer Logic to August 15, 2026 00:00:00
+        const targetDate = new Date('August 15, 2026 00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = String(days).padStart(2, '0');
+                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
+
