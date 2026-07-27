@@ -79,12 +79,9 @@
 
         <!-- PAGE 0: HOME / OVERVIEW -->
         <div id="page-0" class="page-view active">
-            <!-- Hero Header -->
+            <!-- Hero Header (Background image placeholder removed to prevent broken icons) -->
             <header class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-stone-900 text-white">
-                <div class="absolute inset-0 z-0">
-                    <img src="https://images.unsplash.com/photo-1543785307-160a03d24e93?auto=format&fit=crop&w=2000&q=80" alt="Plaza de España Seville" class="w-full h-full object-cover opacity-60 scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/30 to-transparent"></div>
-                </div>
+                <div class="absolute inset-0 z-0 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-950 opacity-90"></div>
 
                 <div class="relative z-10 max-w-5xl mx-auto px-4 text-center py-20">
                     <span class="inline-block uppercase tracking-[0.3em] text-xs sm:text-sm text-sunYellow bg-terracotta/40 px-5 py-2 rounded-full mb-6 font-bold shadow-lg backdrop-blur-md border border-sunYellow/30">
@@ -330,8 +327,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     <!-- Zahara -->
                     <div onclick="openVillageModal('zahara')" class="bg-cream dark:bg-stone-800 rounded-3xl p-6 border-2 border-terracotta/30 hover:border-terracotta cursor-pointer transition-all shadow-md hover:scale-105 group">
-                        <div class="h-32 rounded-2xl overflow-hidden mb-4 relative">
-                            <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80" alt="Zahara de la Sierra" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                        <div class="h-32 rounded-2xl bg-terracotta/10 flex items-center justify-center mb-4 relative">
+                            <i class="fa-solid fa-mountain-sun text-4xl text-terracotta"></i>
                             <span class="absolute top-2 right-2 bg-terracotta text-white text-[10px] px-2 py-0.5 rounded-full font-bold">Day 5 Idea</span>
                         </div>
                         <h3 class="font-serif font-bold text-xl mb-1 text-terracotta">Zahara de la Sierra</h3>
@@ -341,8 +338,8 @@
 
                     <!-- Setenil -->
                     <div onclick="openVillageModal('setenil')" class="bg-cream dark:bg-stone-800 rounded-3xl p-6 border-2 border-medblue/30 hover:border-medblue cursor-pointer transition-all shadow-md hover:scale-105 group">
-                        <div class="h-32 rounded-2xl overflow-hidden mb-4 relative">
-                            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=80" alt="Setenil de las Bodegas" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                        <div class="h-32 rounded-2xl bg-medblue/10 flex items-center justify-center mb-4 relative">
+                            <i class="fa-solid fa-house-chimney-crack text-4xl text-medblue"></i>
                             <span class="absolute top-2 right-2 bg-medblue text-white text-[10px] px-2 py-0.5 rounded-full font-bold">Day 6 Idea</span>
                         </div>
                         <h3 class="font-serif font-bold text-xl mb-1 text-medblue">Setenil de las Bodegas</h3>
@@ -352,8 +349,8 @@
 
                     <!-- Cadiz -->
                     <div onclick="openVillageModal('cadiz')" class="bg-cream dark:bg-stone-800 rounded-3xl p-6 border-2 border-olive/30 hover:border-olive cursor-pointer transition-all shadow-md hover:scale-105 group">
-                        <div class="h-32 rounded-2xl overflow-hidden mb-4 relative">
-                            <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&w=600&q=80" alt="Cadiz Coast" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                        <div class="h-32 rounded-2xl bg-olive/10 flex items-center justify-center mb-4 relative">
+                            <i class="fa-solid fa-umbrella-beach text-4xl text-olive"></i>
                             <span class="absolute top-2 right-2 bg-olive text-white text-[10px] px-2 py-0.5 rounded-full font-bold">Day 8 Idea</span>
                         </div>
                         <h3 class="font-serif font-bold text-xl mb-1 text-olive">Cádiz Coast</h3>
@@ -363,8 +360,8 @@
 
                     <!-- Ronda Market -->
                     <div onclick="openVillageModal('ronda')" class="bg-cream dark:bg-stone-800 rounded-3xl p-6 border-2 border-sunYellow/60 hover:border-sunYellow cursor-pointer transition-all shadow-md hover:scale-105 group">
-                        <div class="h-32 rounded-2xl overflow-hidden mb-4 relative">
-                            <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=600&q=80" alt="Ronda Markets" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                        <div class="h-32 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-4 relative">
+                            <i class="fa-solid fa-shop text-4xl text-amber-600"></i>
                             <span class="absolute top-2 right-2 bg-amber-600 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">Day 9 Idea</span>
                         </div>
                         <h3 class="font-serif font-bold text-xl mb-1 text-amber-600">Ronda Markets</h3>
@@ -613,12 +610,14 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
-            // Update footer info & buttons
+            // Update footer info & buttons (Hide bottom footer entirely on Page 0 overview)
+            const footerNav = document.querySelector('nav[aria-label="Page navigation"]');
             const indicatorEl = document.getElementById('pageIndicator');
+            
             if (currentPage === 0) {
-                indicatorEl.innerText = "";
-                indicatorEl.style.display = "none";
+                footerNav.style.display = "none";
             } else {
+                footerNav.style.display = "block";
                 indicatorEl.style.display = "block";
                 indicatorEl.innerText = pageTitles[currentPage];
             }
@@ -771,7 +770,7 @@
                 title: "Ronda Markets & Gorge",
                 tagline: "The Cliffside Dramatic City",
                 description: "Famous for its deep El Tajo gorge spanned by the magnificent Puente Nuevo bridge, plus vibrant Sunday artisanal markets, historic bullrings, and scenic cliff trails.",
-                itinerary: "• Morning exploration of the Sunday local markets.<br>• Walk down the gorge trail for the best family photo of Puente Nuevo.<br>• Afternoon ice cream in Plaza Duquesa de Parcent.",
+                itinerary: "• Morning exploration of the Sunday local markets.<br>• Walk down the gorge trail for the best family photo of Puente Nuevo.<br>• Afternoon ice cream in Plaza Duquesne de Parcent.",
                 eaters: "• Tragabuches (Modern Andalusian dining by Dani García)<br>• Albahaca (Scenic balcony terrace dining)",
                 mapLink: "https://maps.google.com/?q=Ronda+Spain"
             }
@@ -814,4 +813,3 @@
     </script>
 </body>
 </html>
-
