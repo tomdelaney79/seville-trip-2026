@@ -61,7 +61,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center space-x-3">
-                    <span class="text-2xl font-serif font-bold text-terracotta drop-shadow-sm"> Seville '26 ☀️</span>
+                    <span class="text-2xl font-serif font-bold text-terracotta drop-shadow-sm">Seville '26 ☀️</span>
                     <span class="hidden sm:inline-block text-xs uppercase tracking-widest text-olive dark:text-olive-light px-2.5 py-1 bg-olive/10 rounded-full font-semibold">15th - 27th August 2026</span>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -94,7 +94,8 @@
                         The Delaneys’ <br><span class="text-sunYellow italic">Trip to Seville</span>
                     </h1>
                     <p class="text-xl sm:text-2xl font-light text-stone-100 max-w-2xl mx-auto mb-10 drop-shadow">
-                        Tom, Rebecca, Rose, and Joe.<br>15th - 27th August 2026.
+                        Tom, Rebecca, Rose, and Joe.<br>
+                        <span class="font-semibold text-sunYellow">15th - 27th August 2026</span>
                     </p>
 
                     <!-- Countdown Timer -->
@@ -613,7 +614,6 @@
             }
 
             // Update footer info & buttons
-            document.getElementById('pageIndicatorлогу').innerText = pageTitles[currentPage];
             const indicatorEl = document.getElementById('pageIndicator');
             if (currentPage === 0) {
                 indicatorEl.innerText = "";
@@ -651,6 +651,11 @@
                 document.getElementById('hours').innerText = String(hours).padStart(2, '0');
                 document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
                 document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
             }
         }
         setInterval(updateCountdown, 1000);
@@ -710,7 +715,7 @@
                     <p><strong>Provider:</strong> Enterprise</p>
                     <p><strong>Collection:</strong> Seville Airport (Tue 18 Aug)</p>
                     <p><strong>Return:</strong> Seville Airport (Tue 25 Aug, before 16:00)</p>
-                    <p class="text-xs text-stone-500">Managed via Holiday Extras[span_0](start_span)[span_0](end_span).</p>
+                    <p class="text-xs text-stone-500">Managed via Holiday Extras.</p>
                 </div>
             `,
             lounge: `
@@ -809,3 +814,4 @@
     </script>
 </body>
 </html>
+
