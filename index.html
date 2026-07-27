@@ -62,7 +62,7 @@
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center space-x-3">
                     <span class="text-2xl font-serif font-bold text-terracotta drop-shadow-sm"> Seville '26 ☀️</span>
-                    <span class="hidden sm:inline-block text-xs uppercase tracking-widest text-olive dark:text-olive-light px-2.5 py-1 bg-olive/10 rounded-full font-semibold">August 15–27</span>
+                    <span class="hidden sm:inline-block text-xs uppercase tracking-widest text-olive dark:text-olive-light px-2.5 py-1 bg-olive/10 rounded-full font-semibold">15th - 27th August 2026</span>
                 </div>
                 <div class="flex items-center space-x-4">
                     <button id="darkModeToggle" aria-label="Toggle Dark Mode" class="p-2.5 rounded-full bg-sunYellow/20 hover:bg-sunYellow/40 text-terracotta transition-colors">
@@ -94,7 +94,7 @@
                         The Delaneys’ <br><span class="text-sunYellow italic">Trip to Seville</span>
                     </h1>
                     <p class="text-xl sm:text-2xl font-light text-stone-100 max-w-2xl mx-auto mb-10 drop-shadow">
-                        Tom, Rebecca, Rose, and Joe. August 15–27, 2026.
+                        Tom, Rebecca, Rose, and Joe.<br>15th - 27th August 2026.
                     </p>
 
                     <!-- Countdown Timer -->
@@ -536,7 +536,7 @@
                 <span>Previous</span>
             </button>
             <div id="pageIndicator" class="text-sm font-serif font-bold text-terracotta tracking-wider">
-                Overview / Home
+                <!-- Cleaned up / hidden on Overview -->
             </div>
             <button id="nextBtn" onclick="changePage(1)" class="flex items-center space-x-2 bg-terracotta hover:bg-terracotta-dark text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed">
                 <span>Next Day</span>
@@ -584,7 +584,7 @@
         const totalPages = 8; // 0 to 8
 
         const pageTitles = [
-            "Overview / Home",
+            "", // Blank on overview page as requested
             "Day 1: Sat 15 Aug",
             "Day 2: Sun 16 Aug",
             "Day 3: Mon 17 Aug",
@@ -613,7 +613,16 @@
             }
 
             // Update footer info & buttons
-            document.getElementById('pageIndicator').innerText = pageTitles[currentPage];
+            document.getElementById('pageIndicatorлогу').innerText = pageTitles[currentPage];
+            const indicatorEl = document.getElementById('pageIndicator');
+            if (currentPage === 0) {
+                indicatorEl.innerText = "";
+                indicatorEl.style.display = "none";
+            } else {
+                indicatorEl.style.display = "block";
+                indicatorEl.innerText = pageTitles[currentPage];
+            }
+
             document.getElementById('prevBtn').disabled = (currentPage === 0);
             document.getElementById('nextBtn').disabled = (currentPage === totalPages);
         }
@@ -678,7 +687,7 @@
                 <h3 class="text-2xl font-serif font-bold mt-2 mb-4">Hotel, Villa & Apartment Stays</h3>
                 <div class="space-y-4">
                     <div class="bg-stone-100 dark:bg-stone-800 p-4 rounded-2xl">
-                        <h4 class="font-bold text-terracotta">1. Novotel Sevilla (Hotel)</h4>
+                        <h4 class="font-bold text-terracotta">1. Novotel Seville (Hotel)</h4>
                         <p class="text-xs text-stone-600 dark:text-stone-300 mt-1"><strong>Check-in:</strong> Sat 15 Aug (upon arrival from airport)</p>
                         <p class="text-xs text-stone-600 dark:text-stone-300"><strong>Check-out:</strong> Tue 18 Aug (11:00)</p>
                     </div>
