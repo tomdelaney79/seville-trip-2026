@@ -184,7 +184,7 @@
                             <ul class="text-sm space-y-2 text-stone-700 dark:text-stone-300">
                                 <li>• Arrive Seville (20:55)</li>
                                 <li>• Check in to Novotel Sevilla</li>
-                                <li>• Explore local food spots</li>
+                                <li>• Relax & unwind</li>
                             </ul>
                         </div>
                     </div>
@@ -582,7 +582,7 @@
         const totalPages = 8; // 0 to 8
 
         const pageTitles = [
-            "HOME / OVERVIEW"
+            "", // Blank on overview page as requested
             "Day 1: Sat 15 Aug",
             "Day 2: Sun 16 Aug",
             "Day 3: Mon 17 Aug",
@@ -633,7 +633,7 @@
         // Initialize state on load
         goToPage(0);
 
-        // Countdown Timer Logic to August 15, 2026 00:00:00
+        // Countdown Timer Logic to August 15, 2026 12:00:00 (Updated +12 hours)
         const targetDate = new Date('August 15, 2026 12:00:00').getTime();
 
         function updateCountdown() {
