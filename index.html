@@ -79,7 +79,7 @@
 
         <!-- PAGE 0: HOME / OVERVIEW -->
         <div id="page-0" class="page-view active">
-            <!-- Hero Header (Background image placeholder removed to prevent broken icons) -->
+            <!-- Hero Header -->
             <header class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-stone-900 text-white">
                 <div class="absolute inset-0 z-0 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-950 opacity-90"></div>
 
@@ -533,9 +533,7 @@
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Previous</span>
             </button>
-            <div id="pageIndicator" class="text-sm font-serif font-bold text-terracotta tracking-wider">
-                <!-- Cleaned up / hidden on Overview -->
-            </div>
+            <div id="pageIndicator" class="text-sm font-serif font-bold text-terracotta tracking-wider"></div>
             <button id="nextBtn" onclick="changePage(1)" class="flex items-center space-x-2 bg-terracotta hover:bg-terracotta-dark text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed">
                 <span>Next Day</span>
                 <i class="fa-solid fa-arrow-right"></i>
@@ -549,9 +547,7 @@
             <button onclick="closeModal()" class="absolute top-4 right-4 text-stone-500 hover:text-stone-800 dark:hover:text-white p-2">
                 <i class="fa-solid fa-xmark text-2xl"></i>
             </button>
-            <div id="modalBody">
-                <!-- Injected dynamically -->
-            </div>
+            <div id="modalBody"></div>
         </div>
     </div>
 
@@ -561,9 +557,7 @@
             <button onclick="closeVillageModal()" class="absolute top-4 right-4 text-stone-500 hover:text-stone-800 dark:hover:text-white p-2">
                 <i class="fa-solid fa-xmark text-2xl"></i>
             </button>
-            <div id="modalContent">
-                <!-- Injected dynamically via JS -->
-            </div>
+            <div id="modalContent"></div>
         </div>
     </div>
 
@@ -579,19 +573,7 @@
 
         // Pagination State
         let currentPage = 0;
-        const totalPages = 8; // 0 to 8
-
-        const pageTitles = [
-            "", // Blank on overview page as requested
-            "Day 1: Sat 15 Aug",
-            "Day 2: Sun 16 Aug",
-            "Day 3: Mon 17 Aug",
-            "Day 4: Tue 18 Aug",
-            "Village Guide (Days 5-10)",
-            "Day 11: Tue 25 Aug",
-            "Day 12: Wed 26 Aug",
-            "Day 13 & Info: Thu 27 Aug"
-        ];
+        const totalPages = 8;
 
         function goToPage(pageIndex) {
             if (pageIndex < 0 || pageIndex > totalPages) return;
@@ -610,7 +592,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
-            // Update footer info & buttons (Hide bottom footer entirely on Page 0 overview)
+            // Update footer visibility and buttons
             const footerNav = document.querySelector('nav[aria-label="Page navigation"]');
             const indicatorEl = document.getElementById('pageIndicator');
             
@@ -618,12 +600,13 @@
                 footerNav.style.display = "none";
             } else {
                 footerNav.style.display = "block";
-                indicatorEl.style.display = "block";
-                indicatorEl.innerText = "";
+                if (indicatorEl) indicatorEl.innerText = `Day ${currentPage} of ${totalPages}`;
             }
 
-            document.getElementById('prevBtn').disabled = (currentPage === 0);
-            document.getElementById('nextBtn').disabled = (currentPage === totalPages);
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            if (prevBtn) prevBtn.disabled = (currentPage === 0);
+            if (nextBtn) nextBtn.disabled = (currentPage === totalPages);
         }
 
         function changePage(direction) {
@@ -633,12 +616,19 @@
         // Initialize state on load
         goToPage(0);
 
-        // Countdown Timer Logic to August 15, 2026 12:00:00 (Updated +12 hours)
-        const targetDate = new Date('August 15, 2026 12:00:00').getTime();
+        // Countdown Timer Logic to August 15, 2026 12:00:00 (+12 hours)
+        const targetDate = new Date('2026-08-15T12:00:00').getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
             const difference = targetDate - now;
+
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
             if (difference > 0) {
                 const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -646,15 +636,15 @@
                 const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-                document.getElementById('days').innerText = String(days).padStart(2, '0');
-                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+                daysEl.innerText = String(days).padStart(2, '0');
+                hoursEl.innerText = String(hours).padStart(2, '0');
+                minutesEl.innerText = String(minutes).padStart(2, '0');
+                secondsEl.innerText = String(seconds).padStart(2, '0');
             } else {
-                document.getElementById('days').innerText = '00';
-                document.getElementById('hours').innerText = '00';
-                document.getElementById('minutes').innerText = '00';
-                document.getElementById('seconds').innerText = '00';
+                daysEl.innerText = '00';
+                hoursEl.innerText = '00';
+                minutesEl.innerText = '00';
+                secondsEl.innerText = '00';
             }
         }
         setInterval(updateCountdown, 1000);
