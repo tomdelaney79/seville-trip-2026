@@ -477,7 +477,7 @@
             </button>
             <div id="pageIndicator" class="text-sm font-serif font-bold text-terracotta tracking-wider"></div>
             <button id="nextBtn" onclick="changePage(1)" class="flex items-center space-x-2 bg-terracotta hover:bg-terracotta-dark text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed">
-                <span>Next Day</span>
+                <span>Next</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </button>
         </div>
@@ -532,7 +532,7 @@
                 footerNav.style.display = "none";
             } else {
                 footerNav.style.display = "block";
-                if (indicatorEl) indicatorEl.innerText = `Day ${currentPage} of ${totalPages}`;
+                if (indicatorEl) indicatorEl.innerText = `Page ${currentPage} of ${totalPages}`;
             }
 
             const prevBtn = document.getElementById('prevBtn');
